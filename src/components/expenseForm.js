@@ -18,11 +18,13 @@ const ExpenseForm = ({ initialExpense, onSave, onCancel }) => {
 
     if (initialExpense) {
       const updatedExpense = {
+        id: initialExpense.id,
         description,
         amount: parseFloat(amount),
       };
 
-      editExpense(initialExpense.id, updatedExpense);
+      console.log(updatedExpense);
+      // editExpense(initialExpense.id, updatedExpense);
 
       onSave(updatedExpense);
       return;

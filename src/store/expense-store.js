@@ -6,7 +6,7 @@ const useExpenseStore = create((set) => ({
     set((state) => ({ expenses: [...state.expenses, expense] })),
   editExpense: (id, updatedExpense) =>
     set((state) => ({
-      expense: state.expenses.map((expense) =>
+      expenses: state.expenses.map((expense) =>
         expense.id === id ? updatedExpense : expense
       ),
     })),

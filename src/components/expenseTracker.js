@@ -6,6 +6,10 @@ function ExpenseTracker() {
   const { expenses, removeExpense, editExpense } = useExpenseStore();
   const [editMode, setEditMode] = useState(null);
 
+  const total = expenses.reduce((acc, expense) => acc + expense.amount, 0);
+
+  console.log('current', expenses);
+
   const handleRemoveExpense = (id) => {
     removeExpense(id);
   };
@@ -15,6 +19,7 @@ function ExpenseTracker() {
   };
 
   const handleSaveExpense = (id, updatedExpense) => {
+    console.log('hello');
     editExpense(id, updatedExpense);
     setEditMode(null);
   };
@@ -66,7 +71,7 @@ function ExpenseTracker() {
         </div>
         <div className='bg-white p-4 rounded shadow'>
           <h2 className='text-lg font-bold mb-4'>Total</h2>
-          <p className='text-2xl font-bold'>$140</p>
+          <p className='text-2xl font-bold'>${total}</p>
         </div>
       </div>
     </div>
